@@ -47,8 +47,8 @@
             lastsender = message.user.id;
           };
           if(message.user.username == currentusr){
-            <% if (english) { %>user.username = "Me";<% }else{ %>
-            user.username = "Moi";<% } %>
+            <% if (english) { %>message.user.username = "Me";<% }else{ %>
+            message.user.username = "Moi";<% } %>
           }else{
             $('#sound')[0].play();
           };
