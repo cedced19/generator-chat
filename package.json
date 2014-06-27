@@ -1,7 +1,7 @@
 {
   "name": "generator-chat",
-  "version": "0.0.1",
-  "description": "Yeoman generator",
+  "version": "0.0.2",
+  "description": "Yeoman generator of chat",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "cedced19/generator-chat",
