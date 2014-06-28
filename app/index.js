@@ -6,7 +6,7 @@ var yosay = require('yosay');
 var chalk = require('chalk');
 
 
-var JadestylGenerator = yeoman.generators.Base.extend({
+var ChatGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
 
@@ -91,6 +91,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
     this.copy('js/jquery.min.js', 'js/jquery.min.js');
     this.copy('js/md5.js', 'js/md5.js');
     this.copy('js/mute.js', 'js/mute.js');
+    this.copy('js/twitter-text.js', 'js/twitter-text.js');
     this.copy('js/mustache.js', 'js/mustache.js');
     this.copy('_bower.json', 'bower.json');
     this.copy('editorconfig', '.editorconfig');
@@ -102,6 +103,7 @@ var JadestylGenerator = yeoman.generators.Base.extend({
     this.copy('font/fontello.svg', 'font/fontello.svg');
     this.copy('font/fontello.ttf', 'font/fontello.ttf');
     this.copy('font/fontello.woff', 'font/fontello.woff');
+    this.copy('favicon.ico', 'favicon.ico');
   },
 
 
@@ -109,4 +111,4 @@ var JadestylGenerator = yeoman.generators.Base.extend({
   }
 });
 
-module.exports = JadestylGenerator;
+module.exports = ChatGenerator;
