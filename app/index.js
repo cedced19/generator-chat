@@ -52,9 +52,23 @@ var ChatGenerator = yeoman.generators.Base.extend({
       }, {
       name: 'Français',
       value: 'french'
-    }, {
+      }, {
       name: 'Deutsch',
       value: 'german'
+      }]
+      },{
+      type: 'list',
+      name: 'colorChoice',
+      message: 'What color you want to use?',
+      choices: [{
+      name: 'Green',
+      value: 'green'
+      }, {
+      name: 'Pink',
+      value: 'pink'
+      }, {
+      name: 'Blue',
+      value: 'blue'
     }]
   }];
 
@@ -65,6 +79,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
       this.port = props.port;
       this.ip = props.ip;
       this.languageSelected = getLanguageChoice(props);
+      this.colorSelected = getColorChoice(props);
 
       done();
 
@@ -113,6 +128,14 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.copy('font/fontello.ttf', 'font/fontello.ttf');
     this.copy('font/fontello.woff', 'font/fontello.woff');
     this.copy('favicon.ico', 'favicon.ico');
+
+    if(this.colorSelected == 'pink'){
+      this.copy('css/pink.css', 'css/pink.css');
+    }
+
+    if(this.colorSelected == 'blue'){
+      this.copy('css/blue.css', 'css/blue.css');
+    }
   },
 
 
@@ -133,6 +156,22 @@ function getLanguageChoice(props) {
 
   if(choices.indexOf('german') !== -1) {
     return 'german';
+  }
+}
+
+function getColorChoice(props) {
+  var choices = props.colorChoice;
+
+  if(choices.indexOf('green') !== -1) {
+    return 'green';
+  }
+
+  if(choices.indexOf('pink') !== -1) {
+    return 'pink';
+  }
+
+  if(choices.indexOf('blue') !== -1) {
+    return 'blue';
   }
 }
 

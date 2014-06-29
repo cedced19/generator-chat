@@ -1,16 +1,25 @@
 # Chat Generator
 
 This is a yeoman generator of chat.
+With color and language option.
 
-##Intall and developpement
-
-Yeoman genertor:
+## Getting Started
 
 ```bash
 $ npm install -g yo
+```
+
+```bash
 $ npm install -g generator-chat
+```
+
+Finally, initiate the generator:
+
+```bash
 $ yo chat
 ```
+
+###Developpement
 
 To launch in developpement:
 
@@ -29,22 +38,6 @@ $ node server.js
 ```
 
 NOTE: public/ is the dist folder.
-
-## Getting Started
-
-```bash
-$ npm install -g yo
-```
-
-```bash
-$ npm install -g generator-chat
-```
-
-Finally, initiate the generator:
-
-```bash
-$ yo chat
-```
 
 ##Based on [ChatC-Web](https://github.com/cedced19/ChatC-Web)
 
