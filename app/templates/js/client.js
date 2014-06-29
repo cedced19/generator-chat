@@ -13,14 +13,17 @@
           var use = MD5($('#mail').val());
 
           if($('#mail').val() == ''){
-          <% if (english) { %>alert('You must enter an email!');<% }else{ %>
-                alert('Vous devez entrer un mail !');<% } %>
+          <% if (languageSelected == 'english') { %>alert('You must enter an email!');<% } %>
+          <% if (languageSelected == 'french') { %>alert('Vous devez entrer un mail !');<% } %>
+          <% if (languageSelected == 'german') { %>alert('Geben Sie bitte eine E-Mail!');<% } %>
           }else if(($("#"+use)).length){
-          <% if (english) { %>alert($('#mail').val() +  ' email is already in use');<% }else{ %>
-                alert('L\'email ' + $('#mail').val() +  ' est déjà utilisé');<% } %>
+          <% if (languageSelected == 'english') { %>alert($('#mail').val() +  ' email is already in use');<% } %>
+          <% if (languageSelected == 'french') { %>alert('L\'email ' + $('#mail').val() +  ' est déjà utilisé');<% } %>
+          <% if (languageSelected == 'german') { %>alert($('#mail').val() +  ' E-Mail ist bereits im Einsatz');<% } %>
           }else if($('#username').val() == ''){
-            <% if (english) { %>alert('You must enter a nickname!');<% }else{ %>
-                alert('Vous devez entrer un pseudo !');<% } %>
+          <% if (languageSelected == 'english') { %>alert('You must enter a nickname!');<% } %>
+          <% if (languageSelected == 'french') { %>alert('Vous devez entrer un pseudo !');<% } %>
+          <% if (languageSelected == 'german') { %>alert('Geben Sie bitte eine Spitznamen!');<% } %>
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
                 currentusr = $('#username').val();
@@ -31,8 +34,9 @@
         $('#form').submit(function(event){
           event.preventDefault();
           if($('#message').val() == ''){
-              <% if (english) { %>alert('You must enter an message!');<% }else{ %>
-              alert('Vous devez entrer un message !');<% } %>
+             <% if (languageSelected == 'english') { %>alert('You must enter an message!');<% } %>
+             <% if (languageSelected == 'french') { %>alert('Vous devez entrer un message !');<% } %>
+             <% if (languageSelected == 'german') { %>alert('Geben Sie bitte eine Meldung!');<% } %>
             }else{
               socket.emit('newmsg', {message : twttr.txt.autoLink(twttr.txt.htmlEscape($('#message').val())) });
               $('#message').val('');
@@ -47,8 +51,9 @@
             lastsender = message.user.id;
           };
           if(message.user.username == currentusr){
-            <% if (english) { %>message.user.username = "Me";<% }else{ %>
-            message.user.username = "Moi";<% } %>
+            <% if (languageSelected == 'english') { %>message.user.username = "Me";<% } %>
+            <% if (languageSelected == 'french') { %>message.user.username = "Moi";<% } %>
+            <% if (languageSelected == 'german') { %>message.user.username = "Mir";<% } %>
           }else{
             $('#sound')[0].play();
           };
@@ -62,8 +67,9 @@
 
         socket.on('newusr', function(user){
           if(user.username == currentusr){
-            <% if (english) { %>user.username = "Me";<% }else{ %>
-            user.username = "Moi";<% } %>
+            <% if (languageSelected == 'english') { %>user.username = "Me";<% } %>
+            <% if (languageSelected == 'french') { %>user.username = "Moi";<% } %>
+            <% if (languageSelected == 'german') { %>user.username = "Mir";<% } %>
           }
           $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" alt="' + user.username + '" title="' + user.username + '">')
         });

@@ -35,10 +35,14 @@
     <div id="login">
       <form action="" id="loginform">
         <h1><%= title %></h1>
-        <p><% if (english) { %>Welcome, please enter your nickname and email (used for gravatar avatar)<% }else{ %>Bienvenue, entrez votre pseudo et votre email (utilis&eacute; pour l'avatar gravatar)<% } %></p>
-        <input type="text" name="login" id="username" placeholder="<% if (english) { %>Username<% }else{ %>Nom d'utilisateur<% } %>">
-        <input type="mail" name="mail" id="mail" placeholder="<% if (english) { %>Email<% }else{ %>Mail<% } %>">
-        <input type="submit" value="<% if (english) { %>Login<% }else{ %>Se connecte<% } %>">
+        <p>
+        <% if (languageSelected == 'english') { %>Welcome, please enter your nickname and email (used for gravatar avatar)<% } %>
+        <% if (languageSelected == 'french') { %>Bienvenue, entrez votre pseudo et votre email (utilis&eacute; pour l'avatar gravatar)<% } %>
+        <% if (languageSelected == 'german') { %>Herzlich willkommen, bitte geben Sie Ihren Namen und E-Mail (für Gravatar avatar verwendet)<% } %>
+        </p>
+        <input type="text" name="login" id="username" placeholder="<% if (languageSelected == 'english') { %>Username<% } %><% if (languageSelected == 'french') { %>Nom d'utilisateur<% } %><% if (languageSelected == 'german') { %>Benutzername<% } %>">
+        <input type="mail" name="mail" id="mail" placeholder="<% if (languageSelected == 'english') { %>Email<% } %><% if (languageSelected == 'french') { %>Mail<% } %><% if (languageSelected == 'german') { %>E-Mail<% } %>">
+        <input type="submit" value="<% if (languageSelected == 'english') { %>Login<% } %><% if (languageSelected == 'french') { %>Se connecte<% } %><% if (languageSelected == 'german') { %>Anmelden<% } %>">
       </form>
     </div>
 

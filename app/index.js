@@ -43,11 +43,20 @@ var ChatGenerator = yeoman.generators.Base.extend({
       message: 'What is the IP of your chat?',
       default: 'localhost'
     },{
-      type: 'confirm',
-      name: 'english',
-      message: 'Would you like to set chat in english?',
-      default: true
-    }];
+      type: 'list',
+      name: 'languageChoice',
+      message: 'What language you want to use?',
+      choices: [{
+      name: 'English',
+      value: 'english'
+      }, {
+      name: 'Français',
+      value: 'french'
+    }, {
+      name: 'Deutsch',
+      value: 'german'
+    }]
+  }];
 
     this.prompt(prompts, function (props) {
       this.title = props.title;
@@ -55,7 +64,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
       this.description = props.description;
       this.port = props.port;
       this.ip = props.ip;
-      this.english = props.english;
+      this.languageSelected = getLanguageChoice(props);
 
       done();
 
@@ -110,5 +119,21 @@ var ChatGenerator = yeoman.generators.Base.extend({
   projectfiles: function () {
   }
 });
+
+function getLanguageChoice(props) {
+  var choices = props.languageChoice;
+
+  if(choices.indexOf('french') !== -1) {
+    return 'french';
+  }
+
+  if(choices.indexOf('english') !== -1) {
+    return 'english';
+  }
+
+  if(choices.indexOf('german') !== -1) {
+    return 'german';
+  }
+}
 
 module.exports = ChatGenerator;
