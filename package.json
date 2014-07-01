@@ -1,6 +1,6 @@
 {
   "name": "generator-chat",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Yeoman generator of chat",
   "license": "MIT",
   "main": "app/index.js",
@@ -8,7 +8,7 @@
   "author": {
     "name": "Cédric",
     "email": "cedced19@gmail.com",
-    "url": "https://github.com/cedced19"
+    "url": "https://cedced19.github.io"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -20,7 +20,14 @@
     "app"
   ],
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "socket.io",
+    "chat",
+    "realtime",
+    "generator",
+    "language",
+    "theme",
+    "grunt"
   ],
   "dependencies": {
     "yeoman-generator": "~0.16.0",
