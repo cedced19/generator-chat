@@ -3,6 +3,10 @@
 This is a yeoman generator of chat.
 With color and language option.
 
+![Dependencies](https://david-dm.org/cedced19/generator-chat.png)](https://david-dm.org/cedced19/generator-chat)
+[![devDependencies](https://david-dm.org/cedced19/generator-chat/dev-status.png)](https://david-dm.org/cedced19/generator-chat#info=devDependencies)
+
+
 ## Getting Started
 
 ```bash

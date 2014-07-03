@@ -1,7 +1,7 @@
 {
   "name": "generator-chat",
-  "version": "0.0.9",
-  "description": "Yeoman generator of chat",
+  "version": "0.1.0",
+  "description": "Yeoman generator of chat (language and color option).",
   "license": "MIT",
   "main": "app/index.js",
   "repository": "cedced19/generator-chat",
@@ -30,9 +30,9 @@
     "grunt"
   ],
   "dependencies": {
-    "yeoman-generator": "~0.16.0",
+    "yeoman-generator": "~0.17.0",
     "chalk": "~0.4.0",
-    "yosay": "^0.1.0"
+    "yosay": "^0.3.0"
   },
   "devDependencies": {
     "mocha": "*"
