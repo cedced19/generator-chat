@@ -18,10 +18,6 @@
           <% if (languageSelected == 'english') { %>alert('You must enter an email!');<% } %>
           <% if (languageSelected == 'french') { %>alert('Vous devez entrer un mail !');<% } %>
           <% if (languageSelected == 'german') { %>alert('Geben Sie bitte eine E-Mail!');<% } %>
-          }else if(($("#"+use)).length){
-          <% if (languageSelected == 'english') { %>alert($('#mail').val() +  ' email is already in use');<% } %>
-          <% if (languageSelected == 'french') { %>alert('L\'email ' + $('#mail').val() +  ' est déjà utilisé');<% } %>
-          <% if (languageSelected == 'german') { %>alert($('#mail').val() +  ' E-Mail ist bereits im Einsatz');<% } %>
           }else if($('#username').val() == ''){
           <% if (languageSelected == 'english') { %>alert('You must enter a nickname!');<% } %>
           <% if (languageSelected == 'french') { %>alert('Vous devez entrer un pseudo !');<% } %>
