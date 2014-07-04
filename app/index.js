@@ -113,7 +113,6 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.copy('css/style.css', 'css/style.css');
     this.copy('css/fontello.css', 'css/fontello.css');
     this.copy('js/jquery.min.js', 'js/jquery.min.js');
-    this.copy('js/md5.js', 'js/md5.js');
     this.copy('js/mute.js', 'js/mute.js');
     this.copy('js/twitter-text.js', 'js/twitter-text.js');
     this.copy('js/mustache.js', 'js/mustache.js');

@@ -5,7 +5,7 @@
         $('#msgtpl').remove();
         $('#msgtpl-line').remove();
         var lastsender = false;
-        var currentusr = false;
+        var currentusr = "";
 
         var socket = io.connect('<%= ip %>:<%= port %>');
 
@@ -70,6 +70,10 @@
         socket.on('logged', function(){
           $('#login').fadeOut();
         });
+
+        socket.on('logerr', function(message){
+           alert(message);
+         });
 
         socket.on('newusr', function(user){
           if(user.username == currentusr){
