@@ -7,35 +7,46 @@ With color and language option.
 [![devDependencies](https://david-dm.org/cedced19/generator-chat/dev-status.png)](https://david-dm.org/cedced19/generator-chat#info=devDependencies)
 
 
-## Getting Started
+## Required
+
+Of course Node.js, NPM and Git.
+
+Yeoman:
 
 ```bash
 $ npm install -g yo
 ```
 
+Bower:
+
+```bash
+$ npm install -g bower
+```
+
+Generator-Chat:
+
 ```bash
 $ npm install -g generator-chat
 ```
 
-Finally, initiate the generator:
+
+## Getting Started
+
+Initiate the generator:
 
 ```bash
 $ yo chat
 ```
 
-###Developpement
-
 To launch in developpement:
 
 ```bash
-$ npm install
 $ node server.js
 ```
 
 To launch in release:
 
 ```bash
-$ npm install
 $ grunt
 $ cd public/
 $ node server.js
@@ -47,6 +58,8 @@ NOTE: public/ is the dist folder.
 
 [![Build Status](https://travis-ci.org/cedced19/ChatC-Web.svg?branch=master)](https://travis-ci.org/cedced19/ChatC-Web)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Dependencies](https://david-dm.org/cedced19/ChatC-Web.png)](https://david-dm.org/cedced19/ChatC-Web)
+[![devDependencies](https://david-dm.org/cedced19/ChatC-Web/dev-status.png)](https://david-dm.org/cedced19/ChatC-Web#info=devDependencies)
 
 ![demo](https://raw.githubusercontent.com/cedced19/ChatC-Web/master/demo.png)
 
