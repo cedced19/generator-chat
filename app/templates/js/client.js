@@ -12,8 +12,6 @@
         $('#loginform').submit(function(event){
           event.preventDefault();
 
-          var use = MD5($('#mail').val());
-
           if($('#mail').val() == ''){
           <% if (languageSelected == 'english') { %>alert('You must enter an email!');<% } %>
           <% if (languageSelected == 'french') { %>alert('Vous devez entrer un mail !');<% } %>
