@@ -57,6 +57,11 @@ var ChatGenerator = yeoman.generators.Base.extend({
       value: 'german'
       }]
       },{
+      type: 'confirm',
+      name: 'animate',
+      message: 'Would you like animate "login form" ?',
+      default: false
+      },{
       type: 'list',
       name: 'colorChoice',
       message: 'What color you want to use?',
@@ -79,6 +84,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
       this.port = props.port;
       this.ip = props.ip;
       this.languageSelected = getLanguageChoice(props);
+      this.animate = props.animate;
       this.colorSelected = getColorChoice(props);
 
       done();
@@ -134,6 +140,10 @@ var ChatGenerator = yeoman.generators.Base.extend({
 
     if(this.colorSelected == 'blue'){
       this.copy('css/blue.css', 'css/blue.css');
+    }
+
+    if(this.animate){
+      this.copy('css/animate.css', 'css/animate.css');
     }
   },
 

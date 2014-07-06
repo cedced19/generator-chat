@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/fontello.css">
     <% if (colorSelected == 'pink') { %><link rel="stylesheet" href="css/pink.css"><% } %>
     <% if (colorSelected == 'blue') { %><link rel="stylesheet" href="css/blue.css"><% } %>
+    <% if (animate) { %><link rel="stylesheet" href="css/animate.css"><% } %>
     <!-- endbuild -->
     <title><%= title %> - Chat</title>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
@@ -41,7 +42,7 @@
     </audio>
 
     <div id="login">
-      <form action="" id="loginform">
+      <form action="" id="loginform" <% if (animate) { %>class="animate"<% } %>>
         <h1><%= title %></h1>
         <p>
         <% if (languageSelected == 'english') { %>Welcome, please enter your nickname and email (used for gravatar avatar)<% } %>
@@ -66,7 +67,6 @@
     <script src="js/jquery.min.js" type="text/javascript"></script>
     <script src="js/mustache.js" type="text/javascript"></script>
     <script src="js/mute.js" type="text/javascript"></script>
-    <script src="js/md5.js" type="text/javascript"></script>
     <script src="js/twitter-text.js" type="text/javascript"></script>
     <script src="js/client.js" type="text/javascript"></script>
     <!-- endbuild -->
