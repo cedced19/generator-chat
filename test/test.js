@@ -6,7 +6,7 @@ var yosay = require('yosay');
 var chalk = require('chalk');
 
 
-var ChatGenerator = yeoman.generators.Base.extend({
+var JadestylGenerator = yeoman.generators.Base.extend({
   init: function () {
     this.pkg = require('../package.json');
 
@@ -93,7 +93,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
     var slugged = _.slugify(title);
     var match = slugged.match(/^$/);
 
-    if (match && match.length === 2){
+    if (match && match.length === 2) {
       return match[1].toLowerCase();
   }
 
@@ -102,7 +102,8 @@ var ChatGenerator = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  bower: function () {
+
+    bower: function () {
         var bower = {
           name: this._.slugify(this.title + '-jadestyl'),
           private: true,
@@ -110,8 +111,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
         };
 
         this.write('bower.json', JSON.stringify(bower, null, 2));
-  },
-
+      },
 
   app: function () {
     this.mkdir('js');
@@ -193,4 +193,4 @@ function getColorChoice(props) {
   }
 }
 
-module.exports = ChatGenerator;
+module.exports = JadestylGenerator;

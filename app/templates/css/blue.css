@@ -4,5 +4,5 @@
   background-color:#2980b9 !important;}
 #form .text {
   border: solid 1px #3498db !important;}
-body {
+body, ::selection {
   background-color:#3498db !important;}
