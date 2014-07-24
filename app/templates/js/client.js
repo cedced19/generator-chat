@@ -43,6 +43,14 @@
         });
 
         socket.on('newmsg', function(message){
+          if(message.user.username == currentusr){
+            <% if (languageSelected == 'english') { %>message.user.username = "Me";<% } %>
+            <% if (languageSelected == 'french') { %>message.user.username = "Moi";<% } %>
+            <% if (languageSelected == 'german') { %>message.user.username = "Mir";<% } %>
+          }else{
+            $('#sound')[0].play();
+          };
+
           if(lastsender != message.user.id){
             $('#messages').append('<div class="sep"></div>');
             $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
@@ -51,13 +59,6 @@
             $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
           };
 
-          if(message.user.username == currentusr){
-            <% if (languageSelected == 'english') { %>message.user.username = "Me";<% } %>
-            <% if (languageSelected == 'french') { %>message.user.username = "Moi";<% } %>
-            <% if (languageSelected == 'german') { %>message.user.username = "Mir";<% } %>
-          }else{
-            $('#sound')[0].play();
-          };
           $("#messages").animate({ scrollTop: $("#messages").prop("scrollHeight") }, 500);
         });
 
