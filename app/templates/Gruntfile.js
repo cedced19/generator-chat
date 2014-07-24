@@ -12,6 +12,7 @@ module.exports = function(grunt) {
           src: [
             'node_modules/MD5/**/*',
             'node_modules/socket.io/**/*',
+            'node_modules/fast-http/**/*',
             '*.html',
             'package.json',
             'sound.mp3',
