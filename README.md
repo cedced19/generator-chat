@@ -48,7 +48,7 @@ To launch in release:
 
 ```bash
 $ grunt
-$ cd public/
+$ cd dist/
 $ node server.js
 ```
 
