@@ -1,6 +1,6 @@
 {
   "name": "generator-chat",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Yeoman generator of chat (language and color option).",
   "license": "MIT",
   "main": "app/index.js",
