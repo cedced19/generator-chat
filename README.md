@@ -6,6 +6,7 @@ With color and language option.
 [![Dependencies](https://david-dm.org/cedced19/generator-chat.png)](https://david-dm.org/cedced19/generator-chat)
 [![devDependencies](https://david-dm.org/cedced19/generator-chat/dev-status.png)](https://david-dm.org/cedced19/generator-chat#info=devDependencies)
 [![Build Status](https://travis-ci.org/cedced19/generator-chat.svg?branch=master)](https://travis-ci.org/cedced19/generator-chat)
+[![NPM version](https://badge.fury.io/js/generator-chat.svg)](http://badge.fury.io/js/generator-chat)
 
 ## Required
 
