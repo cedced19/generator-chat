@@ -22,8 +22,6 @@
           <% if (languageSelected == 'german') { %>alert('Geben Sie bitte eine Spitznamen!');<% } %>
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
-                currentusr = $('#username').val();
-                $('#message').focus();
           };
           return false;
           });
@@ -64,6 +62,8 @@
 
         socket.on('logged', function(){
           $('#login').fadeOut();
+          currentusr = $('#username').val();
+                $('#message').focus();
         });
 
         socket.on('logerr', function(message){
