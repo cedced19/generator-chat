@@ -39,10 +39,6 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       message: 'What is the port of your chat?',
       default: '1337'
     },{
-      name: 'ip',
-      message: 'What is the IP of your chat?',
-      default: 'localhost'
-    },{
       type: 'list',
       name: 'languageChoice',
       message: 'What language you want to use?',
@@ -82,7 +78,6 @@ var JadestylGenerator = yeoman.generators.Base.extend({
       this.author = props.author;
       this.description = props.description;
       this.port = props.port;
-      this.ip = props.ip;
       this.languageSelected = getLanguageChoice(props);
       this.animate = props.animate;
       this.colorSelected = getColorChoice(props);

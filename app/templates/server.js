@@ -4,7 +4,7 @@ var md5 = require("MD5"),
 
 httpServer = fastHttp(port);
 
-console.log("Server running at\n  => http://<%= ip %>:" + port + "/\nCTRL + C to shutdown");
+console.log("Server running at\n  => http://localhost:" + port + "/\nCTRL + C to shutdown");
 
 var io = require('socket.io').listen(httpServer);
 var users = {};
