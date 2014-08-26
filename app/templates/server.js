@@ -11,7 +11,7 @@ var md5 = require('MD5'),
       messages = new Array();
 
 app.get('/', function(req, res) {
-  fs.readFile(__dirname + '/index.html', function(err, data) {
+  fs.readFile(process.cwd() + '/index.html', function(err, data) {
     res.end(data);
   });
 });
@@ -25,11 +25,11 @@ app.get('/messages', function(req, res) {
 });
 
 
-app.use(serveStatic(__dirname));
+app.use(serveStatic(process.cwd()));
 
 var server = require('http').createServer(app);
 
-server.listen(port[0], function() {
+server.listen(port, function() {
     console.log('Server running at\n  => '+ chalk.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
     opn('http://localhost:' + port);
 });

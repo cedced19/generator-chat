@@ -117,7 +117,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.template('index.html', 'index.html');
     this.template('server.js', 'server.js');
     this.template('_package.json', 'package.json');
-    this.template('js/client.js', 'js/client.js');
+    this.template('vendor/js/client.js', 'vendor/js/client.js');
     this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('README.md', 'README.md');
 
@@ -139,15 +139,15 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.copy('favicon.ico', 'favicon.ico');
 
     if(this.colorSelected == 'pink'){
-      this.copy('css/pink.css', 'css/pink.css');
+      this.copy('vendor/css/pink.css', 'vendor/css/pink.css');
     }
 
     if(this.colorSelected == 'blue'){
-      this.copy('css/blue.css', 'css/blue.css');
+      this.copy('vendor/css/blue.css', 'vendor/css/blue.css');
     }
 
     if(this.animate){
-      this.copy('css/animate.css', 'css/animate.css');
+      this.copy('vendor/css/animate.css', 'vendor/css/animate.css');
     }
   },
 
