@@ -1,51 +1,79 @@
-var md5 = require("MD5"),
-      fastHttp = require("fast-http"),
-      port = <%= port %>;
+var md5 = require('MD5'),
+      opn = require('opn'),
+      express = require('express'),
+      app = express(),
+      serveStatic = require('serve-static'),
+      path = require('path'),
+      fs = require('fs'),
+      chalk = require('chalk'),
+      port = <%= port %>,
+      users = new Object(),
+      messages = new Array();
 
-httpServer = fastHttp(port);
+app.get('/', function(req, res) {
+  fs.readFile(__dirname + '/index.html', function(err, data) {
+    res.end(data);
+  });
+});
 
-console.log("Server running at\n  => http://localhost:" + port + "/\nCTRL + C to shutdown");
+app.get('/users', function(req, res) {
+        res.json(users);
+});
 
-var io = require('socket.io').listen(httpServer);
-var users = {};
+app.get('/messages', function(req, res) {
+        res.json(messages);
+});
+
+
+app.use(serveStatic(__dirname));
+
+var server = require('http').createServer(app);
+
+server.listen(port[0], function() {
+    console.log('Server running at\n  => '+ chalk.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
+    opn('http://localhost:' + port);
+});
+
+var io = require('socket.io').listen(server);
+var users = new Object();
 
 
 io.sockets.on('connection', function(socket){
     var me = false;
 
-    for (var k in users){
-        socket.emit('newusr', users[k]);
-    };
-
     socket.on('newmsg', function(message){
         message.user = me;
         message.time = getTime();
+        if(messages.length > 10){
+          messages.shift();
+        }
+        messages.push(message);
         io.sockets.emit('newmsg', message);
     });
 
     socket.on('login', function(user){
       var md5Mail = md5(user.mail.toLowerCase()),
-       error = null;
+      error = null;
 
-       for(var k in users){
-            if(k == md5Mail){
-              <% if (languageSelected == 'english') { %>error = "This email is already in use"<% } %>
-              <% if (languageSelected == 'french') { %>error = "Cette email est déjà utilisé";<% } %>
-              <% if (languageSelected == 'german') { %>error = "Diese E-Mail ist bereits im Einsatz";<% } %>
-            }
-        }
+      for(var k in users){
+          if(k == md5Mail){
+            <% if (languageSelected == 'english') { %>error = 'This email is already in use'<% } %>
+            <% if (languageSelected == 'french') { %>error = 'Cette email est déjà utilisé';<% } %>
+            <% if (languageSelected == 'german') { %>error = 'Diese E-Mail ist bereits im Einsatz';<% } %>
+          }
+      }
 
-        if(error !== null){
-          socket.emit('logerr', error);
-       }else{
+      if(error !== null){
+        socket.emit('logerr', error);
+      }else{
        me = user;
-       me.id =md5Mail;
+       me.id = md5Mail;
        me.avatar = '//gravatar.com/avatar/' + me.id + '?s=50';
        socket.emit('logged');
        users[me.id] = me;
        io.sockets.emit('newusr', me);
     }
-   });
+  });
 
     socket.on('disconnect', function(){
         if(!me){
@@ -57,9 +85,9 @@ io.sockets.on('connection', function(socket){
 });
 
 function getTime(){
-    var date = new Date(),
-      h = date.getHours(),
-      m = date.getMinutes();
+  var date = new Date(),
+    h = date.getHours(),
+    m = date.getMinutes();
 
-   return (h < 10 ? "0" : "") + h + ':' + (m < 10 ? "0" : "") + m;
- }
+  return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
+}

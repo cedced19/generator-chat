@@ -109,9 +109,10 @@ var ChatGenerator = yeoman.generators.Base.extend({
 
 
   app: function () {
-    this.mkdir('js');
-    this.mkdir('css');
-    this.mkdir('font');
+    this.mkdir('vendor');
+    this.mkdir('vendor/js');
+    this.mkdir('vendor/css');
+    this.mkdir('vendor/font');
 
     this.template('index.html', 'index.html');
     this.template('server.js', 'server.js');
@@ -120,22 +121,21 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('README.md', 'README.md');
 
-
-    this.copy('css/style.css', 'css/style.css');
-    this.copy('css/fontello.css', 'css/fontello.css');
-    this.copy('js/jquery.min.js', 'js/jquery.min.js');
-    this.copy('js/mute.js', 'js/mute.js');
-    this.copy('js/twitter-text.js', 'js/twitter-text.js');
-    this.copy('js/mustache.js', 'js/mustache.js');
+    this.copy('sound.mp3', 'sound.mp3');
+    this.copy('sound.ogg', 'sound.ogg');
+    this.copy('vendor/css/style.css', 'vendor/css/style.css');
+    this.copy('vendor/css/fontello.css', 'vendor/css/fontello.css');
+    this.copy('vendor/js/jquery.min.js', 'vendor/js/jquery.min.js');
+    this.copy('vendor/js/mute.js', 'vendor/js/mute.js');
+    this.copy('vendor/js/twitter-text.js', 'vendor/js/twitter-text.js');
+    this.copy('vendor/js/mustache.js', 'vendor/js/mustache.js');
     this.copy('editorconfig', '.editorconfig');
     this.copy('gitignore', '.gitignore');
     this.copy('jshintrc', '.jshintrc');
-    this.copy('500.html', '500.html');
-    this.copy('404.html', '404.html');
-    this.copy('font/fontello.eot', 'font/fontello');
-    this.copy('font/fontello.svg', 'font/fontello.svg');
-    this.copy('font/fontello.ttf', 'font/fontello.ttf');
-    this.copy('font/fontello.woff', 'font/fontello.woff');
+    this.copy('vendor/font/fontello.eot', 'vendor/font/fontello');
+    this.copy('vendor/font/fontello.svg', 'vendor/font/fontello.svg');
+    this.copy('vendor/font/fontello.ttf', 'vendor/font/fontello.ttf');
+    this.copy('vendor/font/fontello.woff', 'vendor/font/fontello.woff');
     this.copy('favicon.ico', 'favicon.ico');
 
     if(this.colorSelected == 'pink'){
