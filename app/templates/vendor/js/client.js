@@ -40,7 +40,7 @@
           return false;
           });
 
-        $('#form').submit(function(event){
+        $('#msgform').submit(function(event){
           event.preventDefault();
           if($('#message').val() == ''){
              <% if (languageSelected == 'english') { %>alert('You must enter an message!');<% } %>
