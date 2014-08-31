@@ -1,5 +1,4 @@
 var md5 = require('MD5'),
-      opn = require('opn'),
       express = require('express'),
       app = express(),
       serveStatic = require('serve-static'),
@@ -31,7 +30,6 @@ var server = require('http').createServer(app);
 
 server.listen(port, function() {
     console.log('Server running at\n  => '+ chalk.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
-    opn('http://localhost:' + port);
 });
 
 var io = require('socket.io').listen(server);

@@ -41,7 +41,7 @@
     </audio>
 
     <div id="login">
-      <form action="" id="loginform">
+      <form action="" id="loginform"  <% if (animate) { %>class="animate"<% } %>>
         <h1><%= title %></h1>
         <p>
         <% if (languageSelected == 'english') { %>Welcome, please enter your nickname and email (used for gravatar avatar)<% } %>
