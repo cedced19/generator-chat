@@ -26,14 +26,17 @@
         $('#loginform').submit(function(event){
           event.preventDefault();
 
-          if($('#mail').val() == ''){
-          <% if (languageSelected == 'english') { %>alert('You must enter an email!');<% } %>
-          <% if (languageSelected == 'french') { %>alert('Vous devez entrer un mail !');<% } %>
-          <% if (languageSelected == 'german') { %>alert('Geben Sie bitte eine E-Mail!');<% } %>
-          }else if($('#username').val() == ''){
-          <% if (languageSelected == 'english') { %>alert('You must enter a nickname!');<% } %>
-          <% if (languageSelected == 'french') { %>alert('Vous devez entrer un pseudo !');<% } %>
-          <% if (languageSelected == 'german') { %>alert('Geben Sie bitte eine Spitznamen!');<% } %>
+          var mail = $('#mail').val().replace(/ /g, ''),
+          username = $('#username').val().replace(/ /g, '');
+
+          if(mail == ''){
+          <% if (languageSelected == 'english') { %>sweetAlert('Oops...', 'You must enter an email!', 'error');<% } %>
+          <% if (languageSelected == 'french') { %>sweetAlert('Oups...', 'Vous devez entrer un mail !', 'error');<% } %>
+          <% if (languageSelected == 'german') { %>sweetAlert('Ups...', 'Geben Sie bitte eine E-Mail!', 'error');<% } %>
+          }else if(username == ''){
+          <% if (languageSelected == 'english') { %>sweetAlert('Oops...', 'You must enter a nickname!', 'error');<% } %>
+          <% if (languageSelected == 'french') { %>sweetAlert('Oups...', 'Vous devez entrer un pseudo !', 'error');<% } %>
+          <% if (languageSelected == 'german') { %>sweetAlert('Ups! ...', 'Geben Sie bitte eine Spitznamen!', 'error');<% } %>
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
           };
@@ -42,10 +45,11 @@
 
         $('#msgform').submit(function(event){
           event.preventDefault();
-          if($('#message').val() == ''){
-             <% if (languageSelected == 'english') { %>alert('You must enter an message!');<% } %>
-             <% if (languageSelected == 'french') { %>alert('Vous devez entrer un message !');<% } %>
-             <% if (languageSelected == 'german') { %>alert('Geben Sie bitte eine Meldung!');<% } %>
+          var message = $('#message').val().replace(/ /g, '');
+           if(message == ''){
+             <% if (languageSelected == 'english') { %>sweetAlert('Oops...', 'You must enter an message!', 'error');<% } %>
+             <% if (languageSelected == 'french') { %>sweetAlert('Oups...', 'Vous devez entrer un message !', 'error');<% } %>
+             <% if (languageSelected == 'german') { %>sweetAlert('Ups...', 'Geben Sie bitte eine Meldung!', 'error');<% } %>
             }else{
               socket.emit('newmsg', {message : twttr.txt.autoLink(twttr.txt.htmlEscape($('#message').val())) });
               $('#message').val('');
@@ -65,7 +69,7 @@
         });
 
         socket.on('logerr', function(message){
-           alert(message);
+           sweetAlert('Oops...', message, 'error')
          });
 
         socket.on('newusr', function(user){

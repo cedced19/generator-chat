@@ -84,15 +84,7 @@ audio{
     -moz-animation-duration: 1s;
     -ms-animation-duration: 1s;
     -o-animation-duration: 1s;
-    animation-duration: 1s;
-    -webkit-box-shadow: 0px 0px 10px black inset, 0px 1px 0px rgba(255, 255, 255, 0.1);
-    -moz-box-shadow: 0px 0px 10px black inset, 0px 1px 0px rgba(255, 255, 255, 0.1);
-    box-shadow: 0px 0px 10px black inset, 0px 1px 0px rgba(255, 255, 255, 0.1);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -ms-border-radius: 3px;
-    -o-border-radius: 3px;
-    border-radius: 3px; }
+    animation-duration: 1s;}
 
 #msgform {
   position: fixed;
@@ -119,7 +111,7 @@ audio{
     -moz-box-shadow: 0px 1px 3px #74C094 inset;
     box-shadow: 0px 1px 3px #74C094 inset; }
 
-      #msgform i{
+    #msgform i{
     position: fixed;
     height: 32px;
     bottom: 9px;
@@ -162,15 +154,7 @@ audio{
 
   #messages img {
     position: absolute;
-    display: block;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    border-radius: 6px;
-    -webkit-box-shadow: 0px 0px 10px black inset;
-    -moz-box-shadow: 0px 0px 10px black inset;
-    box-shadow: 0px 0px 10px black inset; }
+    display: block;}
   #messages .info {
     margin-left: 65px; }
   #messages strong {

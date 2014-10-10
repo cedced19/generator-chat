@@ -123,12 +123,17 @@ var ChatGenerator = yeoman.generators.Base.extend({
 
     this.copy('sound.mp3', 'sound.mp3');
     this.copy('sound.ogg', 'sound.ogg');
+
     this.copy('vendor/css/style.css', 'vendor/css/style.css');
     this.copy('vendor/css/fontello.css', 'vendor/css/fontello.css');
+    this.copy('vendor/css/sweet-alert.css', 'vendor/css/sweet-alert.css');
+
     this.copy('vendor/js/jquery.min.js', 'vendor/js/jquery.min.js');
     this.copy('vendor/js/mute.js', 'vendor/js/mute.js');
     this.copy('vendor/js/twitter-text.js', 'vendor/js/twitter-text.js');
     this.copy('vendor/js/mustache.js', 'vendor/js/mustache.js');
+    this.copy('vendor/js/sweet-alert.js', 'vendor/js/sweet-alert.js');
+
     this.copy('editorconfig', '.editorconfig');
     this.copy('gitignore', '.gitignore');
     this.copy('jshintrc', '.jshintrc');

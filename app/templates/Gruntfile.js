@@ -1,4 +1,5 @@
 // Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> v<%= pkg.version %>
+var path = require('path');
 module.exports = function(grunt) {
 
   var config = {
@@ -7,27 +8,50 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           src: [
-            'node_modules/MD5/**/*',
-            'node_modules/socket.io/**/*',
-            'node_modules/fast-http/**/*',
             '*.html',
             'package.json',
+            'vendor/**/*',
+            'favicon.ico',
             'sound.mp3',
             'sound.ogg',
-            '.gitignore',
-            'font/**.*',
-            'js/*.js',
-            'css/*.css',
-            'favicon.ico',
-            'server.js'
+            'cli.js'
           ],
           dest: 'dist/'
         }]
       }
     },
     useminPrepare: {
-          html: 'index.html'
-    },
+          html: 'index.html',
+          options: {
+                    flow: {
+                      html: {
+                          steps: {
+                            js: ['concat', 'uglifyjs'],
+                              css: [
+                                  'concat',
+                                  {
+                                    name: 'autoprefixer',
+                                    createConfig: function (context, block) {
+                                        context.outFiles = [block.dest];
+                                        return {
+                                          options: {
+                                              browsers: ['last 2 versions', 'ie 8', 'ie 9']
+                                            },
+                                            files: [{
+                                                src: path.join(context.inDir, block.dest),
+                                                dest: path.join(context.outDir, block.dest)
+                                            }]
+                                        };
+                                    }
+                                },
+                                'cssmin'
+                              ]
+                          },
+                          post: {}
+                      }
+                  }
+              }
+          },
     usemin: {
         html: 'dist/index.html'
     },
@@ -48,5 +72,5 @@ module.exports = function(grunt) {
 
   // Load all Grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  grunt.registerTask('default', ['copy', 'useminPrepare', 'concat', 'cssmin', 'uglify', 'usemin', 'htmlmin']);
+  grunt.registerTask('default', ['copy', 'useminPrepare', 'concat', 'autoprefixer', 'cssmin', 'uglify', 'usemin', 'htmlmin']);
 };
