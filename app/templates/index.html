@@ -45,9 +45,9 @@
       <form action="" id="loginform"  <% if (animate) { %>class="animate"<% } %>>
         <h1><%= title %></h1>
         <p>
-        <% if (languageSelected == 'english') { %>Welcome, please enter your nickname and email (used for gravatar avatar)<% } %>
-        <% if (languageSelected == 'french') { %>Bienvenue, entrez votre pseudo et votre email (utilis&eacute; pour l'avatar gravatar)<% } %>
-        <% if (languageSelected == 'german') { %>Herzlich willkommen, bitte geben Sie Ihren Namen und E-Mail (für Gravatar avatar verwendet)<% } %>
+        <% if (languageSelected == 'english') { %>Welcome, please enter your nickname and possibly a email.<% } %>
+        <% if (languageSelected == 'french') { %>Bienvenue, se il vous plaît entrer votre nom et éventuellement un email.<% } %>
+        <% if (languageSelected == 'german') { %>Herzlich willkommen, bitte geben Sie Ihren Namen und eventuell eine E-Mail.<% } %>
         </p>
         <input type="text" name="login" id="username" placeholder="<% if (languageSelected == 'english') { %>Username<% } %><% if (languageSelected == 'french') { %>Nom d'utilisateur<% } %><% if (languageSelected == 'german') { %>Benutzername<% } %>">
         <input type="mail" name="mail" id="mail" placeholder="<% if (languageSelected == 'english') { %>Email<% } %><% if (languageSelected == 'french') { %>Mail<% } %><% if (languageSelected == 'german') { %>E-Mail<% } %>">

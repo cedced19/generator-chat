@@ -14,7 +14,7 @@ module.exports = function(grunt) {
             'favicon.ico',
             'sound.mp3',
             'sound.ogg',
-            'cli.js'
+            'chat.js'
           ],
           dest: 'dist/'
         }]

@@ -29,14 +29,12 @@
           var mail = $('#mail').val().replace(/ /g, ''),
           username = $('#username').val().replace(/ /g, '');
 
-          if(mail == ''){
-          <% if (languageSelected == 'english') { %>sweetAlert('Oops...', 'You must enter an email!', 'error');<% } %>
-          <% if (languageSelected == 'french') { %>sweetAlert('Oups...', 'Vous devez entrer un mail !', 'error');<% } %>
-          <% if (languageSelected == 'german') { %>sweetAlert('Ups...', 'Geben Sie bitte eine E-Mail!', 'error');<% } %>
-          }else if(username == ''){
+          if(username == ''){
           <% if (languageSelected == 'english') { %>sweetAlert('Oops...', 'You must enter a nickname!', 'error');<% } %>
           <% if (languageSelected == 'french') { %>sweetAlert('Oups...', 'Vous devez entrer un pseudo !', 'error');<% } %>
           <% if (languageSelected == 'german') { %>sweetAlert('Ups! ...', 'Geben Sie bitte eine Spitznamen!', 'error');<% } %>
+          }else if(mail == ''){
+                socket.emit('login', {username: $('#username').val(), mail: generateId()});
           }else{
                 socket.emit('login', {username: $('#username').val(), mail: $('#mail').val()});
           };
@@ -109,6 +107,17 @@
             $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
           }
           $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
+        }
+
+        function generateId() {
+                 var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz";
+                 var stringLength = 8;
+                 var randomstring = "";
+                 for(var i = 0; i < stringLength; i++) {
+                    var rnum = Math.floor(Math.random() * chars.length);
+                    randomstring += chars.substring(rnum, rnum + 1);
+            }
+            return randomstring;
         }
 
       })(jQuery);

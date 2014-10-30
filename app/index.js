@@ -115,7 +115,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.mkdir('vendor/font');
 
     this.template('index.html', 'index.html');
-    this.template('server.js', 'server.js');
+    this.template('chat.js', 'chat.js');
     this.template('_package.json', 'package.json');
     this.template('vendor/js/client.js', 'vendor/js/client.js');
     this.template('Gruntfile.js', 'Gruntfile.js');
