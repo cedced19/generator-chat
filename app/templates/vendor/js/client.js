@@ -10,14 +10,14 @@
         $('#msgtpl').remove();
         $('#msgtpl-line').remove();
 
-         $.getJSON(uri + '/users', function (users) {
+         $.getJSON(uri + '/api/users', function (users) {
           for (var user in users){
             displayUser(users[user]);
           }
          });
 
 
-         $.getJSON(uri + '/messages', function (messages) {
+         $.getJSON(uri + '/api/messages', function (messages) {
           for (var message in messages){
             displayMessage(messages[message]);
           }
@@ -109,7 +109,7 @@
           $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
         }
 
-        function generateId() {
+        var generateId = function () {
                  var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz";
                  var stringLength = 8;
                  var randomstring = "";

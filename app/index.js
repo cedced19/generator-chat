@@ -113,6 +113,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.mkdir('vendor/js');
     this.mkdir('vendor/css');
     this.mkdir('vendor/font');
+    this.mkdir('vendor/sound');
 
     this.template('index.html', 'index.html');
     this.template('chat.js', 'chat.js');
@@ -121,8 +122,8 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('README.md', 'README.md');
 
-    this.copy('sound.mp3', 'sound.mp3');
-    this.copy('sound.ogg', 'sound.ogg');
+    this.copy('vendor/sound/sound.mp3', 'vendor/sound/sound.mp3');
+    this.copy('vendor/sound/sound.ogg', 'vendor/sound/sound.ogg');
 
     this.copy('vendor/css/style.css', 'vendor/css/style.css');
     this.copy('vendor/css/fontello.css', 'vendor/css/fontello.css');

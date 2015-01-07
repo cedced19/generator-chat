@@ -2,24 +2,17 @@ var md5 = require('MD5'),
       express = require('express'),
       app = express(),
       serveStatic = require('serve-static'),
-      path = require('path'),
-      fs = require('fs'),
-      chalk = require('chalk'),
+      colors = require('colors'),
       port = <%= port %>,
-      users = new Object(),
-      messages = new Array();
+      users = {},
+      messages = [];
 
-app.get('/', function(req, res) {
-  fs.readFile(process.cwd() + '/index.html', function(err, data) {
-    res.end(data);
-  });
-});
 
-app.get('/users', function(req, res) {
+app.get('/api/users', function(req, res) {
         res.json(users);
 });
 
-app.get('/messages', function(req, res) {
+app.get('/api/messages', function(req, res) {
         res.json(messages);
 });
 
@@ -29,7 +22,7 @@ app.use(serveStatic(process.cwd()));
 var server = require('http').createServer(app);
 
 server.listen(port, function() {
-    console.log('Server running at\n  => '+ chalk.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
+    console.log('Server running at\n  => '+ colors.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
 });
 
 var io = require('socket.io').listen(server);
@@ -55,7 +48,7 @@ io.sockets.on('connection', function(socket){
 
       for(var k in users){
           if(k == md5Mail){
-            <% if (languageSelected == 'english') { %>error = 'This email is already in use'<% } %>
+            <% if (languageSelected == 'english') { %>error = 'This email is already in use';<% } %>
             <% if (languageSelected == 'french') { %>error = 'Cette email est déjà utilisé';<% } %>
             <% if (languageSelected == 'german') { %>error = 'Diese E-Mail ist bereits im Einsatz';<% } %>
           }
@@ -82,7 +75,7 @@ io.sockets.on('connection', function(socket){
     });
 });
 
-function getTime(){
+var getTime = function (){
   var date = new Date(),
     h = date.getHours(),
     m = date.getMinutes();
