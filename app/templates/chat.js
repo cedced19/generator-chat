@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+'use strict';
 var md5 = require('MD5'),
       express = require('express'),
       app = express(),
