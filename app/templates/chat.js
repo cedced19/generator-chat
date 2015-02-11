@@ -1,33 +1,56 @@
 #!/usr/bin/env node
 'use strict';
 var md5 = require('MD5'),
-      express = require('express'),
-      app = express(),
-      serveStatic = require('serve-static'),
+      hapi = require('hapi'),
+      app = new hapi.Server(),
       colors = require('colors'),
       port = <%= port %>,
       users = {},
       messages = [];
 
 
-app.get('/api/users', function(req, res) {
-        res.json(users);
+app.connection({ port: port }); 
+
+app.route({
+    method: 'GET',
+    path: '/api/',
+    handler: function (request, reply) {
+        reply({users: users, messages: messages});
+    }
 });
 
-app.get('/api/messages', function(req, res) {
-        res.json(messages);
+app.route({
+    method: 'GET',
+    path: '/vendor/{param*}',
+    handler: {
+        directory: {
+            path: './vendor/'
+        }
+    }
+});
+
+app.route({
+    method: 'GET',
+    path: '/',
+    handler: function (request, reply) {
+        reply.file('index.html');
+    }
 });
 
 
-app.use(serveStatic(process.cwd()));
+app.route({
+    method: 'GET',
+    path: '/favicon.ico',
+    handler: function (request, reply) {
+        reply.file('favicon.ico');
+    }
+});
 
-var server = require('http').createServer(app);
-
-server.listen(port, function() {
+app.start(function () {
     console.log('Server running at\n  => '+ colors.green('http://localhost:' + port) + '\nCTRL + C to shutdown');
 });
 
-var io = require('socket.io').listen(server);
+var io = require('socket.io').listen(app.listener);
 var users = new Object();
 
 
@@ -36,7 +59,7 @@ io.sockets.on('connection', function(socket){
 
     socket.on('newmsg', function(message){
         message.user = me;
-        message.time = getTime();
+        message.time = require('./lib/time')();
         if(messages.length > 10){
           messages.shift();
         }
@@ -76,11 +99,3 @@ io.sockets.on('connection', function(socket){
        io.sockets.emit('disusr', me);
     });
 });
-
-var getTime = function (){
-  var date = new Date(),
-    h = date.getHours(),
-    m = date.getMinutes();
-
-  return (h < 10 ? '0' : '') + h + ':' + (m < 10 ? '0' : '') + m;
-}

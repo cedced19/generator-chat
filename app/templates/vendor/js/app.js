@@ -6,20 +6,56 @@
               currentusr = '',
               uri = 'http://' + window.location.host,
               socket = io.connect(window.location.host);
+    
+        var displayUser = function (user) {
+           if(user.username == currentusr){
+            <% if (languageSelected == 'english') { %>user.username = "Me";<% } %>
+            <% if (languageSelected == 'french') { %>user.username = "Moi";<% } %>
+            <% if (languageSelected == 'german') { %>user.username = "Mir";<% } %>
+          }
+          $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" alt="' + user.username + '" title="' + user.username + '">');
+        }
+
+        var displayMessage = function (message) {
+           if(message.user.username == currentusr){
+            <% if (languageSelected == 'english') { %>message.user.username = "Me";<% } %>
+            <% if (languageSelected == 'french') { %>message.user.username = "Moi";<% } %>
+            <% if (languageSelected == 'german') { %>message.user.username = "Mir";<% } %>
+          }else{
+            $('#sound')[0].play();
+          }
+
+          if(lastsender != message.user.id){
+            $('#messages').append('<div class="sep"></div>');
+            $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
+            lastsender = message.user.id;
+          }else{
+            $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
+          }
+          $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
+        }
+
+        var generateId = function () {
+                 var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz";
+                 var stringLength = 8;
+                 var randomstring = "";
+                 for(var i = 0; i < stringLength; i++) {
+                    var rnum = Math.floor(Math.random() * chars.length);
+                    randomstring += chars.substring(rnum, rnum + 1);
+            }
+            return randomstring;
+        }
 
         $('#msgtpl').remove();
         $('#msgtpl-line').remove();
 
-         $.getJSON(uri + '/api/users', function (users) {
-          for (var user in users){
-            displayUser(users[user]);
+
+         $.getJSON(uri + '/api/', function (data) {
+          for (var message in data.messages){
+            displayMessage(data.messages[message]);
           }
-         });
-
-
-         $.getJSON(uri + '/api/messages', function (messages) {
-          for (var message in messages){
-            displayMessage(messages[message]);
+          for (var user in data.users){
+            displayUser(data.users[user]);
           }
          });
 
@@ -81,43 +117,6 @@
         });
 
 
-        function displayUser (user) {
-           if(user.username == currentusr){
-            <% if (languageSelected == 'english') { %>user.username = "Me";<% } %>
-            <% if (languageSelected == 'french') { %>user.username = "Moi";<% } %>
-            <% if (languageSelected == 'german') { %>user.username = "Mir";<% } %>
-          }
-          $('#users').append('<img src="' + user.avatar + '" id="' + user.id + '" alt="' + user.username + '" title="' + user.username + '">');
-        }
-
-        function displayMessage (message) {
-           if(message.user.username == currentusr){
-            <% if (languageSelected == 'english') { %>message.user.username = "Me";<% } %>
-            <% if (languageSelected == 'french') { %>message.user.username = "Moi";<% } %>
-            <% if (languageSelected == 'german') { %>message.user.username = "Mir";<% } %>
-          }else{
-            $('#sound')[0].play();
-          }
-
-          if(lastsender != message.user.id){
-            $('#messages').append('<div class="sep"></div>');
-            $('#messages').append( '<div class="message">' + Mustache.render(msg, message) + '</div>' );
-            lastsender = message.user.id;
-          }else{
-            $('#messages').append( '<div class="message">' + Mustache.render(msgline, message) + '</div>' );
-          }
-          $('#messages').animate({ scrollTop: $('#messages').prop('scrollHeight') }, 500);
-        }
-
-        var generateId = function () {
-                 var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghiklmnopqrstuvwxyz";
-                 var stringLength = 8;
-                 var randomstring = "";
-                 for(var i = 0; i < stringLength; i++) {
-                    var rnum = Math.floor(Math.random() * chars.length);
-                    randomstring += chars.substring(rnum, rnum + 1);
-            }
-            return randomstring;
-        }
+        
 
       })(jQuery);

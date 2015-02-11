@@ -114,17 +114,20 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.mkdir('vendor/css');
     this.mkdir('vendor/font');
     this.mkdir('vendor/sound');
+    this.mkdir('lib');
 
     this.template('index.html', 'index.html');
     this.template('chat.js', 'chat.js');
     this.template('_package.json', 'package.json');
-    this.template('vendor/js/client.js', 'vendor/js/client.js');
+    this.template('vendor/js/app.js', 'vendor/js/app.js');
     this.template('Gruntfile.js', 'Gruntfile.js');
     this.template('README.md', 'README.md');
 
     this.copy('vendor/sound/sound.mp3', 'vendor/sound/sound.mp3');
     this.copy('vendor/sound/sound.ogg', 'vendor/sound/sound.ogg');
 
+    this.copy('lib/time.js', 'lib/time.js');
+      
     this.copy('vendor/css/style.css', 'vendor/css/style.css');
     this.copy('vendor/css/icono.css', 'vendor/css/icono.css');
     this.copy('vendor/css/sweet-alert.css', 'vendor/css/sweet-alert.css');
@@ -138,10 +141,6 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.copy('editorconfig', '.editorconfig');
     this.copy('gitignore', '.gitignore');
     this.copy('jshintrc', '.jshintrc');
-    this.copy('vendor/font/fontello.eot', 'vendor/font/fontello');
-    this.copy('vendor/font/fontello.svg', 'vendor/font/fontello.svg');
-    this.copy('vendor/font/fontello.ttf', 'vendor/font/fontello.ttf');
-    this.copy('vendor/font/fontello.woff', 'vendor/font/fontello.woff');
     this.copy('favicon.ico', 'favicon.ico');
 
     if(this.colorSelected == 'pink'){

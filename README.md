@@ -51,9 +51,9 @@ $ cd dist/
 $ node server.js
 ```
 
-NOTE: public/ is the dist folder.
+NOTE: dist/ is the dist folder.
 
-##Based on [ChatC-Web](https://github.com/cedced19/ChatC-Web)
+## Based on [ChatC-Web](https://github.com/cedced19/ChatC-Web)
 
 [![Build Status](https://travis-ci.org/cedced19/ChatC-Web.svg?branch=master)](https://travis-ci.org/cedced19/ChatC-Web)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)

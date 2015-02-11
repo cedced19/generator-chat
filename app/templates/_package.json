@@ -6,9 +6,8 @@
   "dependencies": {
     "MD5": "^1.2.1",
     "socket.io": "^1.0.6",
-    "express": "^4.8.5",
-    "colors": "^1.0.3",
-    "serve-static": "^1.5.3"
+    "hapi": "^8.1.0",
+    "colors": "^1.0.3"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

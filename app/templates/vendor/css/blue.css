@@ -4,5 +4,7 @@
   background-color:#2980b9 !important;}
 #msgform .text {
   border: solid 1px #3498db !important;}
-body, ::selection {
+body {
+  background-color:#3498db !important;}
+::selection {
   background-color:#3498db !important;}
