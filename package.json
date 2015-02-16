@@ -1,8 +1,13 @@
 {
   "name": "generator-chat",
-  "version": "0.3.4",
+  "version": "0.3.4-1",
   "description": "Yeoman generator of chat (language and color option).",
-  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://cedced19.github.io/license/"
+    }
+  ],
   "main": "app/index.js",
   "repository": "cedced19/generator-chat",
   "author": {
