@@ -1,6 +1,6 @@
 {
   "name": "generator-chat",
-  "version": "0.3.4-1",
+  "version": "0.3.5",
   "description": "Yeoman generator of chat (language and color option).",
   "licenses": [
     {
