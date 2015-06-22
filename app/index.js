@@ -120,14 +120,14 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.template('chat.js', 'chat.js');
     this.template('_package.json', 'package.json');
     this.template('vendor/js/app.js', 'vendor/js/app.js');
-    this.template('Gruntfile.js', 'Gruntfile.js');
+    this.template('gulpfile.js', 'gulpfile.js');
     this.template('README.md', 'README.md');
 
     this.copy('vendor/sound/sound.mp3', 'vendor/sound/sound.mp3');
     this.copy('vendor/sound/sound.ogg', 'vendor/sound/sound.ogg');
 
     this.copy('lib/time.js', 'lib/time.js');
-      
+
     this.copy('vendor/css/style.css', 'vendor/css/style.css');
     this.copy('vendor/css/icono.css', 'vendor/css/icono.css');
     this.copy('vendor/css/sweet-alert.css', 'vendor/css/sweet-alert.css');
@@ -138,9 +138,7 @@ var ChatGenerator = yeoman.generators.Base.extend({
     this.copy('vendor/js/mustache.js', 'vendor/js/mustache.js');
     this.copy('vendor/js/sweet-alert.js', 'vendor/js/sweet-alert.js');
 
-    this.copy('editorconfig', '.editorconfig');
     this.copy('gitignore', '.gitignore');
-    this.copy('jshintrc', '.jshintrc');
     this.copy('favicon.ico', 'favicon.ico');
 
     if(this.colorSelected == 'pink'){
@@ -154,10 +152,6 @@ var ChatGenerator = yeoman.generators.Base.extend({
     if(this.animate){
       this.copy('vendor/css/animate.css', 'vendor/css/animate.css');
     }
-  },
-
-
-  projectfiles: function () {
   }
 });
 

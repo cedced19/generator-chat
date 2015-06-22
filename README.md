@@ -46,7 +46,7 @@ $ node server.js
 To launch in release:
 
 ```bash
-$ grunt
+$ gulp
 $ cd dist/
 $ node server.js
 ```
@@ -56,7 +56,6 @@ NOTE: dist/ is the dist folder.
 ## Based on [Chat C for CLI](https://github.com/cedced19/chatc-cli)
 
 [![Build Status](https://travis-ci.org/cedced19/chatc-cli.svg?branch=master)](https://travis-ci.org/cedced19/chatc-cli)
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 ![demo](https://raw.githubusercontent.com/cedced19/chatc-cli/master/demo.png)
 

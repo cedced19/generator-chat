@@ -45,6 +45,9 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block; }
 
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: none;}
+
 body {
   font-family: arial, sans-serif;
   font-size: 16px;
@@ -94,7 +97,6 @@ audio{
   background: #74C094;
   height: 50px; }
   #msgform .text {
-    border: solid 3px #c9c9c9;
     transition: border 0.3s;
     font-size: 18px;
     appearance: none;
