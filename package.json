@@ -32,7 +32,8 @@
     "generator",
     "language",
     "theme",
-    "grunt"
+    "gravatar",
+    "gulp"
   ],
   "dependencies": {
     "chalk": "^1.0.0",
